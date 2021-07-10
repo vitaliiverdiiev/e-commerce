@@ -30,5 +30,3 @@
 7. Wrap export with withRouter, i.e. `export default withRouter(MenuItem)`;
 
 > > > In order not to pass a whole bunch of properties we can pass 1 and add ...otherProps. In a component that gets props we need to do it like {...otherProps};
-
-8.
