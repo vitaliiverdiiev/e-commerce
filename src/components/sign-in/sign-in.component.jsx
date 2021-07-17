@@ -1,6 +1,7 @@
 import React from "react";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+import { signInWithGoogle } from "../../firebase/firebase.utils";
 
 import "./sign-in.styles.scss";
 
@@ -50,7 +51,10 @@ class SignIn extends React.Component {
             required
           />
 
-          <Button type="submit" children="Submit Form" />
+          <div className="buttons">
+            <Button type="submit" children="Sign in" />
+            <Button onClick={signInWithGoogle} isGoogleSignIn children="Sign in with Google" />
+          </div>
         </form>
       </div>
     );
