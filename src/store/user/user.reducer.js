@@ -1,9 +1,11 @@
+import { UserActionTypes } from "./user.types";
+
 const INITIAL_STATE = {
   currentUser: null,
 };
 
 const handlers = {
-  SET_CURRENT_USER: (state, action) => ({
+  [UserActionTypes.SET_CURRENT_USER]: (state, action) => ({
     ...state,
     currentUser: action.payload,
   }),
