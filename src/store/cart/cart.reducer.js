@@ -1,5 +1,5 @@
-import { TOGGLE_CART_HIDDEN, ADD_ITEM } from "../action.types";
-import { addItemToCart } from "./cart.utils";
+import { TOGGLE_CART_HIDDEN, ADD_ITEM, CLEAR_ITEM_FROM_CART, REMOVE_ITEM } from "../action.types";
+import { addItemToCart, removeItemFromCart } from "./cart.utils";
 
 const INITIAL_STATE = {
   hidden: true,
@@ -14,6 +14,14 @@ const handlers = {
   [ADD_ITEM]: (state, action) => ({
     ...state,
     cartItems: addItemToCart(state.cartItems, action.payload),
+  }),
+  [REMOVE_ITEM]: (state, action) => ({
+    ...state,
+    cartItems: removeItemFromCart(state.cartItems, action.payload),
+  }),
+  [CLEAR_ITEM_FROM_CART]: (state, action) => ({
+    ...state,
+    cartItems: state.cartItems.filter((cartItem) => cartItem.id !== action.payload.id),
   }),
   DEFAULT: (state) => state,
 };
