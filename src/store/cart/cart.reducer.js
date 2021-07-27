@@ -1,13 +1,19 @@
-import { CartActionTypes } from "./cart.types";
+import { TOGGLE_CART_HIDDEN, ADD_ITEM } from "../action.types";
+import { addItemToCart } from "./cart.utils";
 
 const INITIAL_STATE = {
   hidden: true,
+  cartItems: [],
 };
 
 const handlers = {
-  [CartActionTypes.TOGGLE_CART_HIDDEN]: (state, action) => ({
+  [TOGGLE_CART_HIDDEN]: (state, action) => ({
     ...state,
     hidden: !state.hidden,
+  }),
+  [ADD_ITEM]: (state, action) => ({
+    ...state,
+    cartItems: addItemToCart(state.cartItems, action.payload),
   }),
   DEFAULT: (state) => state,
 };
