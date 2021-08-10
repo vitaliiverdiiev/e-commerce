@@ -1,10 +1,14 @@
-import SHOP_DATA from "./shop.data";
+import ShopActionTypes from "./shop.types";
 
 const INITIAL_STATE = {
-  collections: SHOP_DATA,
+  collections: null,
 };
 
 const handlers = {
+  [ShopActionTypes.UPDATE_COLLECTIONS]: (state, action) => ({
+    ...state,
+    collections: action.payload,
+  }),
   DEFAULT: (state) => state,
 };
 
